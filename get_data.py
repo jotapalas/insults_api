@@ -1,25 +1,23 @@
-import pymysql
-import pymysql.cursors
-import config
+import firebase_admin
+import json
+from firebase_admin import credentials
+from firebase_admin import firestore
 
 def connect_to_db():
-  mysql = pymysql.connect(
-    host=config.DATABASE_CONFIG['host'],
-    user=config.DATABASE_CONFIG['user'],
-    passwd=config.DATABASE_CONFIG['password'],
-    db=config.DATABASE_CONFIG['dbname'],
-    cursorclass=pymysql.cursors.DictCursor
-  )
-  return mysql.cursor()
+  # Use a service account
+  cred = credentials.Certificate('fbio-config.json')
+  if not len(firebase_admin._apps):
+    firebase_admin.initialize_app(cred)
+  db = firestore.client()
+  return db
 
 def get_data(table, fields=[]):
-  query_fields = '*'
-  if len(fields) > 0:
-    query_fields = ','.join(fields)
-  cursor = connect_to_db()
-  query = "select %s from %s" % (query_fields, table)
-  cursor.execute(query)
-  return cursor.fetchall()
+  db = connect_to_db()
+  docs = db.collection(table).get()
+  result = []
+  for doc in docs:
+    result.append(doc.to_dict())
+  return result
   
 def get_data_mapped(table, fields=[], key='id'):
   data = get_data(table, fields)
