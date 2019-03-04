@@ -1,10 +1,11 @@
-from flask import Flask, request
+from flask import Flask
 from flask_restful import Resource, Api
 from flask.json import jsonify
 from get_data import get_data, get_data_mapped
 
 app = Flask(__name__)
 api = Api(app)
+
 
 class Comeback(Resource):
   def get(self):
@@ -22,7 +23,6 @@ class All(Resource):
     insults = get_data_mapped('insults')
     comebacks = get_data_mapped('comebacks')
     for ic in insult_comebacks:
-      insult = {}
       insult_id = ic['insult_id']
       comeback_id = ic['comeback_id']
       insult = insults[insult_id]
@@ -31,9 +31,7 @@ class All(Resource):
       comeback = comebacks[comeback_id]
       insult['comebacks'].append(comeback)
     return jsonify({'insults': insults})
-      
-        
-      
+
 
 api.add_resource(Insult, '/insults')
 api.add_resource(Comeback, '/comebacks')

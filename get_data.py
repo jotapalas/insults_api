@@ -13,11 +13,11 @@ def connect_to_db():
   return mysql.cursor()
 
 def get_data(table, fields=[]):
-  fields = '*'
+  query_fields = '*'
   if len(fields) > 0:
-    fields = ','.join(fields)
+    query_fields = ','.join(fields)
   cursor = connect_to_db()
-  query = "select %s from %s" % (fields, table)
+  query = "select %s from %s" % (query_fields, table)
   cursor.execute(query)
   return cursor.fetchall()
   
