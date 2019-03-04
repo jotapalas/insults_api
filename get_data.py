@@ -1,14 +1,14 @@
-import MySQLdb
-import MySQLdb.cursors
+import pymysql
+import pymysql.cursors
 import config
 
 def connect_to_db():
-  mysql = MySQLdb.connect(
+  mysql = pymysql.connect(
     host=config.DATABASE_CONFIG['host'],
     user=config.DATABASE_CONFIG['user'],
     passwd=config.DATABASE_CONFIG['password'],
     db=config.DATABASE_CONFIG['dbname'],
-    cursorclass=MySQLdb.cursors.DictCursor
+    cursorclass=pymysql.cursors.DictCursor
   )
   return mysql.cursor()
 
