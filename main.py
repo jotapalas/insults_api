@@ -33,6 +33,9 @@ class All(Resource):
     return jsonify({'insults': insults})
 
 
-api.add_resource(Insult, '/insults')
-api.add_resource(Comeback, '/comebacks')
-api.add_resource(All, '/all')
+api.add_resource(Insult, '/api/insults')
+api.add_resource(Comeback, '/api/comebacks')
+api.add_resource(All, '/api/all')
+
+if __name__ == '__main__':
+     app.run(port='1337')
