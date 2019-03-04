@@ -36,6 +36,3 @@ class All(Resource):
 api.add_resource(Insult, '/insults')
 api.add_resource(Comeback, '/comebacks')
 api.add_resource(All, '/all')
-
-if __name__ == '__main__':
-     app.run(port='1337')
