@@ -2,5 +2,6 @@ venv/
 *.json
 config.py
 .idea/
+lib/
 
 *.pyc
