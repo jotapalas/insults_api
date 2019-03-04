@@ -1,0 +1,5 @@
+venv/
+*.json
+config.py
+
+*.pyc
