@@ -7,6 +7,7 @@ Click==7.0
 enum34==1.1.6
 firebase-admin==2.16.0
 Flask==1.0.2
+Flask-Jsonpify==1.5.0
 Flask-RESTful==0.3.7
 futures==3.2.0
 google-api-core==1.8.0
@@ -25,7 +26,6 @@ msgpack==0.6.1
 protobuf==3.7.0
 pyasn1==0.4.5
 pyasn1-modules==0.2.4
-PyMySQL==0.9.3
 pytz==2018.9
 relativetimebuilder==0.2.0
 requests==2.21.0
