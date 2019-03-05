@@ -9,6 +9,6 @@ It's kinda self explanatory: *main.py* is the main entry point, while *get_data.
 ## About the routes
 Every route returns a JSON object related with insults in some way or another:
 
-- */insults*: Get all the insults for every sword fight.
-- */comebacks*: Get just the comebacks for the insults.
-- */all*: Get every insult with every one of its comebacks!
+- [*/insults*](https://angular-vortex-230208.appspot.com/api/insults): Get all the insults for every sword fight.
+- [*/comebacks*](https://angular-vortex-230208.appspot.com/api/comebacks): Get just the comebacks for the insults.
+- [*/all*](https://angular-vortex-230208.appspot.com/api/all): Get every insult with every one of its comebacks!
