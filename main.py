@@ -32,10 +32,24 @@ class All(Resource):
       insult['comebacks'].append(comeback)
     return jsonify({'insults': insults})
 
+class Index(Resource):
+  def get(self):
+    return ('<html>'
+          + '<head><title>Welcome to insults API</title></head>'
+          + '<body>'
+          +    'Usage:<br/><ul>'
+          +      '<li><a href="/api/insults">Insults</a></li>'
+          +      '<li><a href="/api/comebacks">Comebacks</a></li>'
+          +      '<li><a href="/api/all">All</a></li>'
+          +    '</ul>'
+          + '</body>'
+          + '</html>')
+
 
 api.add_resource(Insult, '/api/insults')
 api.add_resource(Comeback, '/api/comebacks')
 api.add_resource(All, '/api/all')
+api.add_resource(Index, '/')
 
 if __name__ == '__main__':
   app.run(port=1337, debug=True)
