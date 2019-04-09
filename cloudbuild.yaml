@@ -1,6 +1,6 @@
 steps:
 
-- name: 'gcr.io/library/python:2.7'
+- name: 'gcr.io/angular-vortex-230208/python:2.7'
   args: [ 'pip', 'install', '-r', 'requirements.txt' ]
 
 - name: 'gcr.io/cloud-builders/gcloud'
