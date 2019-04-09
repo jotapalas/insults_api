@@ -33,7 +33,7 @@ class All(Resource):
     return jsonify({'insults': insults})
 
 @app.route('/', methods=['GET'])
-def get():
+def index():
   return str('<html>'
         + '<head><title>Welcome to insults API</title></head>'
         + '<body>'
